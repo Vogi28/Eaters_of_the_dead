@@ -2,13 +2,24 @@
 
 require_once __DIR__ ."/../vendor/autoload.php";
 
-use App\Battlefield;
-use App\Deck;
 use App\Land;
+use App\Monster;
+use App\Battlefield;
+use Symfony\Component\HttpClient\HttpClient;
 
 $battlefied = new Battlefield();
-$deck = new Deck();
+$monster = new Monster();
 $land = new Land();
+
+
+
+$monster->setCard_Monster();
+$hand = $monster->getCard_Monster();
+
+for ($i=0; $i < 3; $i++) 
+{ 
+    echo $hand[$i]['name'].'<br>';
+}
 
 $battlefield->run();
 

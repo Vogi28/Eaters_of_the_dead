@@ -2,21 +2,46 @@
 
 require_once __DIR__ ."/../vendor/autoload.php";
 
-// use App\Battlefield;
-// use App\Deck;
-// use App\Land;
+use App\Deck;
+use App\Land;
+use App\Monster;
+use App\Battlefield;
+use Symfony\Component\HttpClient\HttpClient;
 
-// $battlefied = new Battlefield();
-// $deck = new Deck();
-// $land = new Land();
+$battlefied = new Battlefield();
+$monster = new Monster();
+$land = new Land();
 
-// $battlefield->run();
+
+
+// $monster->setCard_Monster();
+// $hand = $monster->getCard_Monster();
+
+// for ($i=0; $i < 3; $i++) 
+// { 
+//     echo $hand[$i]['name'].'<br>';
+// }
+
+// echo '<br><br>';
+// $land->setCard_lands();
+// $lands = $land->getCard_Lands();
+
+// for ($i=0; $i < 3; $i++) 
+// { 
+//     # code...
+//     echo $lands[$i]['image'].'<br>';
+// }
+
+
+$battlefield->run();
+
 
 // rooting twig
 $loader = new Twig\Loader\FilesystemLoader(__DIR__.'/../src/view/');
 $twig = new Twig\Environment($loader);
 
 // render
+
 // echo $twig->render('../src/view/index.hmtl.twig', 
 // ['lands'=>$land,
 // 'landBackground'=>$landBackground, 
@@ -28,3 +53,4 @@ $twig = new Twig\Environment($loader);
 // 'mainPlayerTwo'=>$mainPlayerTwo]);
 
 echo $twig->render('index.html.twig');
+

@@ -13,7 +13,7 @@ class Monster extends Deck
      parent::__construct;
  }
  
- public function setOne_Monster_Card(Type $var = null)
+ public function setOne_Monster_Card()
  {
      #
  }

@@ -2,6 +2,7 @@
 
 require_once __DIR__ ."/../vendor/autoload.php";
 
+use App\Deck;
 use App\Land;
 use App\Monster;
 use App\Battlefield;
@@ -13,13 +14,24 @@ $land = new Land();
 
 
 
-$monster->setCard_Monster();
-$hand = $monster->getCard_Monster();
+// $monster->setCard_Monster();
+// $hand = $monster->getCard_Monster();
 
-for ($i=0; $i < 3; $i++) 
-{ 
-    echo $hand[$i]['name'].'<br>';
-}
+// for ($i=0; $i < 3; $i++) 
+// { 
+//     echo $hand[$i]['name'].'<br>';
+// }
+
+// echo '<br><br>';
+// $land->setCard_lands();
+// $lands = $land->getCard_Lands();
+
+// for ($i=0; $i < 3; $i++) 
+// { 
+//     # code...
+//     echo $lands[$i]['image'].'<br>';
+// }
+
 
 $battlefield->run();
 

@@ -53,7 +53,7 @@ class Battlefield
 
     public function setRandomLand()
     {
-        // Séléction du terrain
+        // Séléction du terrain;
     }
 
     public function isLandMonster()

@@ -9,12 +9,12 @@ class Land
      # code...
  }
  
- public function setCard_Land(Type $var = null)
+ public function setCard_Land()
  {
      # code...
  }
 
- public function getCard_Land(Type $var = null)
+ public function getCard_Land()
  {
      # code...
  }

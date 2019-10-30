@@ -1,16 +1,28 @@
 <?php
 
 namespace App;
+use Symfony\Component\HttpClient\HttpClient;
+
 
 abstract class Deck 
 {
-    protected $card_monsters;
-    protected $card_lands;
+    public $deck_monsters;
+    public $card_lands;
+    public $card_monsters;
 
 
-    public function selectDeck()
+    public function __construct()
     {
         # chercher les cartes du deck correspondant sur l'API
+        $client = HttpClient::create();
+        $response = $client->request('GET', 'https://hackathon-wild-hackoween.herokuapp.com/monsters');
+        
+        $statusCode = $response->getStatusCode();
+        
+        if($statusCode === 200)
+        {
+            $this->deck_monsters = $response->toArray();
+        }
     }
 
     public function mixedDeck() #optionnal
@@ -21,6 +33,11 @@ abstract class Deck
     public function setCard_Monster()
     {
         # melanger le deck et sortir 3 cartes monstre du deck 
+        foreach($this->deck_monsters as $monsters)
+        {
+            shuffle($monsters);
+            $this->card_monsters = $monsters;
+        }
     }
 
     public function setCard_Land()
@@ -31,6 +48,7 @@ abstract class Deck
     public function getCard_Monster()
     {
         # afficher les 3 cartes du joueur correspondant de facon aleatoire
+        return $this->card_monsters;
     }
 
     public function getCard_Land()

@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Land 
+class Land extends Deck
 {
  public function __construc()
  {

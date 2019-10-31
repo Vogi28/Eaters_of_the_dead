@@ -12,18 +12,7 @@ class Land extends Deck
     {
         parent::__construct;
     }
-    
-    public function setCard_Lands()
-    {
-        # code...
-        shuffle($this->deck_lands);
-                return $this->card_lands = $this->deck_lands;
-    }
 
-    public function getCard_Lands()
-    {
-        return $this->card_lands;
-    }
 }
 
 

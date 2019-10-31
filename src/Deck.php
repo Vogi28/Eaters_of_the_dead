@@ -14,7 +14,7 @@ abstract class Deck
     protected $land;
     protected $lands;
     protected $cards;
-    protected $cimetery;
+    public $cimetery;
 
     public function __construct()
     {
@@ -53,7 +53,7 @@ abstract class Deck
             "20"=>array("id" => "20","nameMovie" => "Omens Good", "image" => "images/20.jpg"),
         );
 
-        $this->cimetery = 0;
+        $this->cimetery = 10;
     }
 
     public function mixedDeck() #optionnal
@@ -122,20 +122,19 @@ abstract class Deck
         }
     }
 
-    public function setCard($monster) 
+    public function setMonster($monster) 
     {
         $this->monster=$monster;
         unset($this->deck_monsters[$monster]);
     }
 
-    public function setLand($land)
-    {
-        $this->land=$land;
-    }
-
     public function getMonster()
     {
         return $this->monster;
+    }
+    public function setLand($land)
+    {
+        $this->land=$land;
     }
     public function getLand()
     {

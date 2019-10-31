@@ -3,13 +3,22 @@
 
     {% block body %}
         <div class="containerBody">
+        {% block win %}
+                {{oneLose}}
+                {{twoLose}}
+                {{hallo}}
+        {% endblock %}
 
         {% block lands %}
-            <div class="containerLands">
-                 <img src="pic_trulli.jpg" alt="Italian Trulli">
-
-            </div>
+                {% for land in lands %}
+                    <img src="../public/{{land.image}}">
+                {% endfor %}
         {% endblock %}
+
+        {% block land %}
+                    <img src="../public/{{oneLand.image}}">
+        {% endblock %}
+
 
         {% block landbackground %}
             <div class="containerLandBackground">
@@ -40,16 +49,29 @@
         {% endblock %}
 
         {% block mainplayerone %}
-            <div class="containerMainPlayerOne">
+                {% for image1 in playerOneThree %}
+                    <a href="?page=4&id1={{image1.id}}"><img src="{{image1.picture}}"></a>
+                {% endfor %}
 
-            </div>
         {% endblock %}
 
         {% block mainplayertwo %}
-            <div class="containerMainPlayerTwo">
 
-            </div>
+                {% for image2 in playerTwoThree %}
+                    <a href="?page=4&id2={{image2.id}}"><img src="{{image2.picture}}"></a>
+                {% endfor %}
+
+        {% endblock %}
+
+        {% block cardPlayerOne %}
+
+        <img src="{{cardOne.picture}}">
+
         {% endblock %}
         
+        {% block cardPlayerTwo %}
+        <img src="{{cardTwo.picture}}">
+        {% endblock %}
+
         </div>        
     {% endblock %}

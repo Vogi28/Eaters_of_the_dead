@@ -1,8 +1,18 @@
 <?php
     require_once __DIR__ ."/../vendor/autoload.php";
 
+use App\Deck;
+use App\Land;
+use App\Monster;
+
+$deckPlayerOne = new Monster();
+$deckPlayerTwo = new Monster();
+$land = new Land();
+
+
     $loader = new Twig\Loader\FilesystemLoader(__DIR__.'/../src/view/');
     $twig = new Twig\Environment($loader);
+
 
     if($_GET["page"]=="1")
     {
@@ -10,7 +20,7 @@
     }
     if($_GET["page"]=="2")
     {
-        call_user_func("getRandomLands",$twig);
+        call_user_func("getRandomLands",$twig, $land);
     }
     if($_GET["page"]=="3")
     {
@@ -38,14 +48,22 @@
 
     function winCondition($twig)
     {
-        // Si deck = 0 et cimetière = 20
+        // cimetière = 20
+        if($monster->cimetery === 20)
+        {
+            
+            echo "<script type='text/javascript'>Alert('You win')</scripst>";
+        }
         echo $twig->render('index.html.twig',['valeur'=>$valeur]);
     }
 
-    function getRandomLands($twig)
+    function getRandomLands($twig, $land)
     {
         // Préselection des 3 terrains
+        $land->setCard_Land();
+        $lands = $land->getCard_Land();
         echo $twig->render('index.html.twig');
+        return $lands;
     }
 
     function getRandomMonsters($twig)
@@ -53,6 +71,7 @@
         // Main des joueurs
         // Si monstre vivants ne pioche pas
         // Sinon il pioche 3 cartes
+
         echo $twig->render('index.html.twig');
     }
 

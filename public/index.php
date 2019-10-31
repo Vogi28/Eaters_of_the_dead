@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ ."/../vendor/autoload.php";
+require_once __DIR__."/../src/Battlefield.php";
 
 use App\Deck;
 use App\Land;
@@ -9,12 +10,6 @@ use Symfony\Component\HttpClient\HttpClient;
 
 $monster = new Monster();
 $land = new Land();
-$cimeteryP1 = new CimeteryP1;
-$cimeteryAI = new CimeteryAI;
-
-$a = [0,1,2,3,4,5]
-)
-
 
 
 // $monster->setCard_Monster();
@@ -36,7 +31,9 @@ $a = [0,1,2,3,4,5]
 // }
 
 
-// $battlefield->run();
+$battlefield = getRandomLands($twig, $land);
+
+echo $battlefield;
 
 
 // rooting twig

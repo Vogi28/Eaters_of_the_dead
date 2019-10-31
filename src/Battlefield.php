@@ -18,7 +18,7 @@ $land = new Land();
 
     if($_GET["page"]=="1")
     {
-        call_user_func("winCondition",$twig,$deckPlayerOne,$deckPlayerTwo);
+        call_user_func("winCondition",$twig,$deckPlayerOne,$deckPlayerTwo,$land);
     }
     if($_GET["page"]=="2")
     {
@@ -51,33 +51,19 @@ $land = new Land();
 
 
 
-    function winCondition($twig, $deckPlayerOne,$deckPlayerTwo)
+    function winCondition($twig, $deckPlayerOne,$deckPlayerTwo,$land)
     {
         // cimetière = 20
         if($deckPlayerOne->cimetery == 20)
-        {();
+        {
             $terrain=$land->getCard_Land();
-            $cardPlayerOne=$deckPlayerOne->getCard();
-            $cardPlayerTwo=$deckPlayerTwo->getCard();
-    
-            if($terrain["id"]==$deckPlayerOne["id"])
-            {
-                foreach($deckOrigin as $deck)
-                {
-                    if($deck["id"]==$deckPlayerOne["id"])
-                    {
-                        $defense=$deck["defense"];
-                    }
-                }
-                if($defense!=$deckPlayerOne["defense"])
-                {
             $oneLose="lose";
             echo $twig->render('index.html.twig',['oneLose'=>$oneLose]);
         }
-        if($deckPlayerOne->cimetery == 20)
+        if($deckPlayerTwo->cimetery == 20)
         {
-            $TowLose="lose";
-            echo $twig->render('index.html.twig',['oneLose'=>$oneLose]);
+            $towLose="lose";
+            echo $twig->render('index.html.twig',['oneLose'=>$towLose]);
         }
 
     }
@@ -147,40 +133,40 @@ $land = new Land();
         $cardPlayerOne=$deckPlayerOne->getCard();
         $cardPlayerTwo=$deckPlayerTwo->getCard();
 
-        if($terrain["id"]==$deckPlayerOne["id"])
+        if($terrain["id"]==$cardPlayerOne["id"])
         {
             foreach($deckOrigin as $deck)
             {
-                if($deck["id"]==$deckPlayerOne["id"])
+                if($deck["id"]==$cardPlayerOne["id"])
                 {
                     $defense=$deck["defense"];
                 }
             }
-            if($defense!=$deckPlayerOne["defense"])
+            if($defense!=$cardPlayerOne["defense"])
             {
-                $deckPlayerOne["defense"]=$defense;
+                $cardPlayerOne["defense"]=$defense;
             }
             else
             {
-                $deckPlayerOne["attack"]*=2;
+                $cardPlayerOne["attack"]*=2;
             }
         }        
-        if($terrain["id"]==$deckPlayerTwo["id"])
+        if($terrain["id"]==$cardPlayerTwo["id"])
         {
             foreach($deckOrigin as $deck)
             {
-                if($deck["id"]==$deckPlayerTwo["id"])
+                if($deck["id"]==$cardPlayerTwo["id"])
                 {
                     $defense=$deck["defense"];
                 }
             }
-            if($defense!=$deckPlayerTwo["defense"])
+            if($defense!=$cardPlayerTwo["defense"])
             {
-                $deckPlayerTwo["defense"]=$defense;
+                $cardPlayerTwo["defense"]=$defense;
             }
             else
             {
-                $deckPlayerTwo["attack"]*=2;
+                $cardPlayerTwo["attack"]*=2;
             }
         }
 

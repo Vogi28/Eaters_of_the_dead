@@ -156,7 +156,7 @@ abstract class Deck
     {
         return $this->cards;
     }
-    public function setThreeCards($lands)
+    public function setThreeCards($cards)
     {
         $this->cards=$cards;
     }

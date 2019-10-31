@@ -9,11 +9,9 @@ use Symfony\Component\HttpClient\HttpClient;
 
 $monster = new Monster();
 $land = new Land();
-$cimeteryP1 = new CimeteryP1;
-$cimeteryAI = new CimeteryAI;
+
 
 $a = [0,1,2,3,4,5]
-)
 
 
 

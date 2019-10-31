@@ -18,7 +18,7 @@ $land = new Land();
 
     if($_GET["page"]=="1")
     {
-        call_user_func("winCondition",$twig);
+        call_user_func("winCondition",$twig,$deckPlayerOne,$deckPlayerTwo,$land);
     }
     if($_GET["page"]=="2")
     {
@@ -30,7 +30,7 @@ $land = new Land();
     }
     if($_GET["page"]=="4")
     {
-        call_user_func("setChoiceMonster",$twig);
+        call_user_func("setChoiceMonster",$twig,$deckplayers);
     }
     if($_GET["page"]=="5")
     {
@@ -51,15 +51,21 @@ $land = new Land();
 
 
 
-    function winCondition($twig, $deckPlayerOne)
+    function winCondition($twig, $deckPlayerOne,$deckPlayerTwo,$land)
     {
         // cimetière = 20
-        if($deckPLayerOne->cimetery === 20)
+        if($deckPlayerOne->getCimetery() == 20)
         {
-            
-            echo "<script type='text/javascript'>Alert('You win')</scripst>";
+            $terrain=$land->getCard_Land();
+            $oneLose="lose";
+            echo $twig->render('index.html.twig',['oneLose'=>$oneLose]);
         }
-        echo $twig->render('index.html.twig',['valeur'=>$valeur]);
+        if($deckPlayerTwo->getCimetery() == 20)
+        {
+            $towLose="lose";
+            echo $twig->render('index.html.twig',['oneLose'=>$towLose]);
+        }
+
     }
 
     function getRandomLands($twig, $land)
@@ -87,10 +93,11 @@ $land = new Land();
         echo $twig->render('index.html.twig');
     }
 
-    function setChoiceMonster($twig)
+    function setChoiceMonster($twig, $deckPlayers)
     {
         // Si monstre vivant ne choisi pas
-        // Sinon en choisi 1
+        // Sinon en choisi 1 
+        return $deckPlayers;
         echo $twig->render('index.html.twig');
     }
 
@@ -109,11 +116,11 @@ $land = new Land();
         {
             if($landId==$origin["id"])
             {
-                
+                $land->setLand($origin);
             }
         }
         
-
+        echo $twig->render('index.html.twig');
     }
 
     function isLandMonster($twig,$land,$deckPlayerOne,$deckPlayerTwo,$deckOrigin)
@@ -126,40 +133,40 @@ $land = new Land();
         $cardPlayerOne=$deckPlayerOne->getCard();
         $cardPlayerTwo=$deckPlayerTwo->getCard();
 
-        if($terrain["id"]==$deckPlayerOne["id"])
+        if($terrain["id"]==$cardPlayerOne["id"])
         {
             foreach($deckOrigin as $deck)
             {
-                if($deck["id"]==$deckPlayerOne["id"])
+                if($deck["id"]==$cardPlayerOne["id"])
                 {
                     $defense=$deck["defense"];
                 }
             }
-            if($defense!=$deckPlayerOne["defense"])
+            if($defense!=$cardPlayerOne["defense"])
             {
-                $deckPlayerOne["defense"]=$defense;
+                $cardPlayerOne["defense"]=$defense;
             }
             else
             {
-                $deckPlayerOne["attack"]*=2;
+                $cardPlayerOne["attack"]*=2;
             }
         }        
-        if($terrain["id"]==$deckPlayerTwo["id"])
+        if($terrain["id"]==$cardPlayerTwo["id"])
         {
             foreach($deckOrigin as $deck)
             {
-                if($deck["id"]==$deckPlayerTwo["id"])
+                if($deck["id"]==$cardPlayerTwo["id"])
                 {
                     $defense=$deck["defense"];
                 }
             }
-            if($defense!=$deckPlayerTwo["defense"])
+            if($defense!=$cardPlayerTwo["defense"])
             {
-                $deckPlayerTwo["defense"]=$defense;
+                $cardPlayerTwo["defense"]=$defense;
             }
             else
             {
-                $deckPlayerTwo["attack"]*=2;
+                $cardPlayerTwo["attack"]*=2;
             }
         }
 
@@ -178,6 +185,7 @@ $land = new Land();
 
         $cardPlayerOne["defense"]-=$cardPlayerTwo["attack"];
         $cardPlayerTwo["defense"]-=$cardPlayerOne["attack"];
-        var_dump($cardPlayerOne,$cardPlayerTwo);
         echo $twig->render('index.html.twig');
     }
+
+    

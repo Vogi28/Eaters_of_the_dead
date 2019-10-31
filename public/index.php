@@ -34,7 +34,9 @@ $land = new Land();
 
 $battlefield = getRandomMonsters($twig, $deckPlayerOne, $deckPlayerTwo);
 
-var_dump($battlefield);
+$deckPlayers=setChoiceMonster($twig, $battlefield);
+
+var_dump($deckPlayers);
 
 // rooting twig
 // $loader = new Twig\Loader\FilesystemLoader(__DIR__.'/../src/view/');

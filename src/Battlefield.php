@@ -24,7 +24,7 @@ $land = new Land();
     }
     if($_GET["page"]=="3")
     {
-        call_user_func("getRandomMonsters",$twig);
+        call_user_func("getRandomMonsters",$twig, $deckPLayerOne,$deckPlayerTwo);
     }
     if($_GET["page"]=="4")
     {
@@ -45,10 +45,10 @@ $land = new Land();
 
 
 
-    function winCondition($twig)
+    function winCondition($twig, $deckPlayerOne)
     {
         // cimetière = 20
-        if($monster->cimetery === 20)
+        if($deckPLayerOne->cimetery === 20)
         {
             
             echo "<script type='text/javascript'>Alert('You win')</scripst>";
@@ -62,15 +62,22 @@ $land = new Land();
         $land->setCard_Land();
         $lands = $land->getCard_Land();
         echo $twig->render('index.html.twig');
-        return $lands;
+        foreach ($lands as $image)
+        {
+            $lands_set[] = $image['image'];
+        }
     }
 
-    function getRandomMonsters($twig)
+    function getRandomMonsters($twig, $deckPlayerOne, $deckPlayerTwo)
     {
         // Main des joueurs
         // Si monstre vivants ne pioche pas
         // Sinon il pioche 3 cartes
+        $deckPlayerOne->setCard_Monster();
+        $deckPlayerTwo->setCard_Monster();
+        $deck_players = [$deckPlayerOne->getCard_Monster(), $deckPlayerTwo->getCard_Monster()];
 
+        return $deck_players;
         echo $twig->render('index.html.twig');
     }
 
@@ -103,7 +110,7 @@ $land = new Land();
         echo $twig->render('index.html.twig');
     }
 
-    function fight($twig,$deckPlayerOne,$deckPlayerTwo)
+    function fight($twig, $deckPlayerOne,$deckPlayerTwo)
     {
         // Résolution des dégats
         // Si les 2 créatures meurt cimetière + 1

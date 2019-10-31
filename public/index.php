@@ -17,8 +17,8 @@ $land = new Land();
 $cimeteryP1 = new CimeteryP1;
 $cimeteryAI = new CimeteryAI;
 
-var_dump($cimeteryP1->getCimetery());
-var_dump($cimeteryAI->getCimetery());
+$a = [0,1,2,3,4,5]
+)
 
 
 

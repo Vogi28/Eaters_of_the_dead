@@ -8,7 +8,8 @@ use App\Land;
 use App\Monster;
 use Symfony\Component\HttpClient\HttpClient;
 
-$monster = new Monster();
+$deckPlayerOne = new Monster();
+$deckPlayerTwo = new Monster();
 $land = new Land();
 
 // $monster->setCard_Monster();
@@ -30,10 +31,10 @@ $land = new Land();
 // }
 
 
-$battlefield = getRandomLands($twig, $land);
 
-echo $battlefield;
+$battlefield = getRandomMonsters($twig, $deckPlayerOne, $deckPlayerTwo);
 
+var_dump($battlefield);
 
 // rooting twig
 // $loader = new Twig\Loader\FilesystemLoader(__DIR__.'/../src/view/');

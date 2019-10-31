@@ -18,7 +18,7 @@ $land = new Land();
 
     if($_GET["page"]=="1")
     {
-        call_user_func("winCondition",$twig);
+        call_user_func("winCondition",$twig,$deckPlayerOne,$deckPlayerTwo);
     }
     if($_GET["page"]=="2")
     {
@@ -51,15 +51,35 @@ $land = new Land();
 
 
 
-    function winCondition($twig, $deckPlayerOne)
+    function winCondition($twig, $deckPlayerOne,$deckPlayerTwo)
     {
         // cimetière = 20
-        if($deckPLayerOne->cimetery === 20)
-        {
-            
-            echo "<script type='text/javascript'>Alert('You win')</scripst>";
+        if($deckPlayerOne->cimetery == 20)
+        {();
+            $terrain=$land->getCard_Land();
+            $cardPlayerOne=$deckPlayerOne->getCard();
+            $cardPlayerTwo=$deckPlayerTwo->getCard();
+    
+            if($terrain["id"]==$deckPlayerOne["id"])
+            {
+                foreach($deckOrigin as $deck)
+                {
+                    if($deck["id"]==$deckPlayerOne["id"])
+                    {
+                        $defense=$deck["defense"];
+                    }
+                }
+                if($defense!=$deckPlayerOne["defense"])
+                {
+            $oneLose="lose";
+            echo $twig->render('index.html.twig',['oneLose'=>$oneLose]);
         }
-        echo $twig->render('index.html.twig',['valeur'=>$valeur]);
+        if($deckPlayerOne->cimetery == 20)
+        {
+            $TowLose="lose";
+            echo $twig->render('index.html.twig',['oneLose'=>$oneLose]);
+        }
+
     }
 
     function getRandomLands($twig, $land)
@@ -109,11 +129,11 @@ $land = new Land();
         {
             if($landId==$origin["id"])
             {
-                
+                $land->setLand($origin);
             }
         }
         
-
+        echo $twig->render('index.html.twig');
     }
 
     function isLandMonster($twig,$land,$deckPlayerOne,$deckPlayerTwo,$deckOrigin)

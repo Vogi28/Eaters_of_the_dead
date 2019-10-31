@@ -10,9 +10,9 @@ $deckPlayerTwo = new Monster();
 $land = new Land();
 
 
+
     $loader = new Twig\Loader\FilesystemLoader(__DIR__.'/../src/view/');
     $twig = new Twig\Environment($loader);
-
 
     if($_GET["page"]=="1")
     {
@@ -36,14 +36,13 @@ $land = new Land();
     }
     if($_GET["page"]=="6")
     {
-        call_user_func("isLandMonster",$twig);
+        call_user_func("isLandMonster",$twig,$land);
     }
     if($_GET["page"]=="7")
     {
-        call_user_func("fight",$twig);
+        call_user_func("fight",$twig,$deckPlayerOne,$deckPlayerTwo);
     }
 
-    $valeur="Bonjour je suis un string";
 
 
     function winCondition($twig)
@@ -88,18 +87,43 @@ $land = new Land();
         echo $twig->render('index.html.twig');
     }
 
-    function isLandMonster($twig)
+    function isLandMonster($twig,$land)
     {
         // Si terrain du monstre joueur 1 alors boost
         // Si terrain du monstre joueur 2 alors boost
         // Sinon rien
+        $land->setCard_Land();
+        $lands=$land->getCard_Land();
+        foreach($lands as $terrain)
+        {
+            $terrain=$terrain;
+        }
+        var_dump($terrain);
+        
         echo $twig->render('index.html.twig');
     }
 
-    function fight($twig)
+    function fight($twig,$deckPlayerOne,$deckPlayerTwo)
     {
         // Résolution des dégats
         // Si les 2 créatures meurt cimetière + 1
         // Sinon (juste 1 créature est morte) créature joueur x, cimetière joueur x + 1
+        $deckPlayerOne->setCard_Monster();
+        $cards=$deckPlayerOne->getCard_Monster();
+        foreach($cards as $cardPlayerOne)
+        {
+            $cardPlayerOne=$cardPlayerOne;
+        }
+        $deckPlayerTwo->setCard_Monster();
+        $cards=$deckPlayerTwo->getCard_Monster();
+        foreach($cards as $cardPlayerTwo)
+        {
+            $cardPlayerOne=$cardPlayerTwo;
+        }
+        var_dump($cardPlayerOne,$cardPlayerTwo);
+
+        $cardPlayerOne["defense"]-=$cardPlayerTwo["attack"];
+        $cardPlayerTwo["defense"]-=$cardPlayerOne["attack"];
+        var_dump($cardPlayerOne,$cardPlayerTwo);
         echo $twig->render('index.html.twig');
     }

@@ -11,7 +11,6 @@ use Symfony\Component\HttpClient\HttpClient;
 $monster = new Monster();
 $land = new Land();
 
-
 // $monster->setCard_Monster();
 // $hand = $monster->getCard_Monster();
 

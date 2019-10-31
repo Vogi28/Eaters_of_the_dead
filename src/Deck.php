@@ -10,6 +10,7 @@ abstract class Deck
     protected $card_lands;
     protected $card_monsters;
     protected $deck_lands;
+    protected $cardBattlefield;
 
     public function __construct()
     {
@@ -76,15 +77,35 @@ abstract class Deck
     public function getCard_Monster()
     {
         # afficher les 3 cartes du joueur correspondant de facon aleatoire
-        return $this->card_monsters;
+        // for ($i=0; $i < 3; $i++) 
+        // { 
+        //     echo $$this.[$i]['name'].'<br>';
+        // }
+        $count=count($this->card_monsters);
+        if($count>3)
+        {   
+            $count=3;
+        }
+        for($i =0;$i<$count;$i++)
+        {
+            $cardOfThree[]=$this->card_monsters[$i];
+        }
+        return $cardOfThree;
     }
 
     public function getCard_Land()
     {
-        # afficher les 3 terrains  de facon aleatoire 
-        return $this->card_lands;
+        $count=count($this->card_lands);
+        if($count>3)
+        {
+            $count=3;
+        }
+        for($i =0;$i<$count;$i++)
+        {
+            $landOfThree[]=$this->card_lands[$i];
+        }
+        return $landOfThree;
     }
-
     public function cimetery()
     {
         # si defense carte monstre <= 0, envoyer la catre au cimetiere

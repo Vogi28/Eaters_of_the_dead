@@ -30,7 +30,7 @@ $land = new Land();
     }
     if($_GET["page"]=="4")
     {
-        call_user_func("setChoiceMonster",$twig);
+        call_user_func("setChoiceMonster",$twig,$deckplayers);
     }
     if($_GET["page"]=="5")
     {
@@ -107,10 +107,11 @@ $land = new Land();
         echo $twig->render('index.html.twig');
     }
 
-    function setChoiceMonster($twig)
+    function setChoiceMonster($twig, $deckPlayers)
     {
         // Si monstre vivant ne choisi pas
-        // Sinon en choisi 1
+        // Sinon en choisi 1 
+        return $deckPlayers;
         echo $twig->render('index.html.twig');
     }
 

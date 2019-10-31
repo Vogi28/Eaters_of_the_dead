@@ -13,6 +13,7 @@ abstract class Deck
     protected $monster;
     protected $land;
     protected $lands;
+    protected $cards;
 
     protected $cimetery;
 
@@ -149,5 +150,14 @@ abstract class Deck
     public function setThreeLands($lands)
     {
         $this->lands=$lands;
+    }
+
+    public function getThreeCards()
+    {
+        return $this->cards;
+    }
+    public function setThreeCards($lands)
+    {
+        $this->cards=$cards;
     }
 }

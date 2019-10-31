@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Annie Use Your Telescope', cursive;
 }
 
 .background {
@@ -22,9 +23,9 @@
 }
 
 .title {
-    color: white;
-    margin: 30px;
-    font-size: 50px;
+    color: #ff4d00;
+    margin: 20px;
+    font-size: 80px;
     text-decoration: none;
 }
 
@@ -33,4 +34,102 @@ audio {
     bottom: 50px;
     right: 50px;
     z-index: 1;
+    background-color: #ff4d00;
+}
+
+.deckUn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    color: #fff;
+    width: 15%;
+    height: 30%;
+    background-color: saddlebrown;
+    font-size: 30px;
+}
+
+.cimetiereUn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 50px;
+    right: 22%;
+    color: #fff;
+    width: 15%;
+    height: 30%;
+    background-color: saddlebrown;
+    opacity: 20%;
+    font-size: 30px;
+}
+
+.deckDeux {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50px;
+    left: 5%;
+    color: #fff;
+    width: 15%;
+    height: 20%;
+    background-color: saddlebrown;
+    font-size: 30px;
+}
+
+.cimetiereDeux {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50px;
+    left: 22%;
+    color: #fff;
+    width: 15%;
+    height: 20%;
+    background-color: saddlebrown;
+    opacity: 20%;
+    font-size: 30px;
+}
+
+.land {
+    width: 40%;
+    height: 30%;
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.randomOne, .randomTwo, .randomTree {
+    width: 33.33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.randomOne {
+    background-color: #ff4d00;
+}
+
+.randomTwo {
+    background-color: #ff4e75;
+}
+
+.randomTree {
+    background-color: blue;
+}
+
+.main {
+    background-color: #ff4d00;
+    width: 200px;
+    height: 400px;
+    position: absolute;
+    bottom: 50px;
+    left: 5%;
+    display: flex;
+    flex-direction: row;
 }

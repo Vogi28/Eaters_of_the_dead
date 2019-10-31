@@ -12,6 +12,7 @@ abstract class Deck
     protected $deck_lands;
     protected $monster;
     protected $land;
+    protected $lands;
 
     protected $cimetery;
 
@@ -76,7 +77,6 @@ abstract class Deck
         
             shuffle($this->deck_lands);
             return $this->card_lands = $this->deck_lands;
-            
     }
 
     public function getCard_Monster()
@@ -140,5 +140,14 @@ abstract class Deck
     public function getLand()
     {
         return $this->land;
+    }
+
+    public function getThreeLands()
+    {
+        return $this->lands;
+    }
+    public function setThreeLands($lands)
+    {
+        $this->lands=$lands;
     }
 }

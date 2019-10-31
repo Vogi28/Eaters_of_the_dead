@@ -54,13 +54,13 @@ $land = new Land();
     function winCondition($twig, $deckPlayerOne,$deckPlayerTwo,$land)
     {
         // cimetière = 20
-        if($deckPlayerOne->cimetery == 20)
+        if($deckPlayerOne->getCimetery() == 20)
         {
             $terrain=$land->getCard_Land();
             $oneLose="lose";
             echo $twig->render('index.html.twig',['oneLose'=>$oneLose]);
         }
-        if($deckPlayerTwo->cimetery == 20)
+        if($deckPlayerTwo->getCimetery() == 20)
         {
             $towLose="lose";
             echo $twig->render('index.html.twig',['oneLose'=>$towLose]);
@@ -185,6 +185,7 @@ $land = new Land();
 
         $cardPlayerOne["defense"]-=$cardPlayerTwo["attack"];
         $cardPlayerTwo["defense"]-=$cardPlayerOne["attack"];
-        var_dump($cardPlayerOne,$cardPlayerTwo);
         echo $twig->render('index.html.twig');
     }
+
+    

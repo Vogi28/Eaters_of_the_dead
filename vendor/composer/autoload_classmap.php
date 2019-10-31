@@ -6,9 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-<<<<<<< HEAD
-    'JsonException' => $vendorDir . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
-=======
     'App\\Deck' => $baseDir . '/src/Deck.php',
     'App\\Land' => $baseDir . '/src/Land.php',
     'App\\Monster' => $baseDir . '/src/Monster.php',
@@ -429,5 +426,4 @@ return array(
     'Twig_TokenStream' => $vendorDir . '/twig/twig/lib/Twig/TokenStream.php',
     'Twig_Util_DeprecationCollector' => $vendorDir . '/twig/twig/lib/Twig/Util/DeprecationCollector.php',
     'Twig_Util_TemplateDirIterator' => $vendorDir . '/twig/twig/lib/Twig/Util/TemplateDirIterator.php',
->>>>>>> e72b663930b8b226bf77edcb414896d277691bf8
 );

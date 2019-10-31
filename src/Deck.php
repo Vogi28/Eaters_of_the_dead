@@ -14,7 +14,6 @@ abstract class Deck
     protected $land;
     protected $lands;
     protected $cards;
-
     protected $cimetery;
 
     public function __construct()
@@ -113,7 +112,7 @@ abstract class Deck
         return $landOfThree;
     }
 
-    public function cimetery($monster)
+    public function setCimetery($monster)
 
     {
         # si defense carte monstre <= 0, envoyer la catre au cimetiere
@@ -159,5 +158,9 @@ abstract class Deck
     public function setThreeCards($cards)
     {
         $this->cards=$cards;
+    }
+    public function getCimetery()
+    {
+        return $this->cimetery;
     }
 }

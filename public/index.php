@@ -53,6 +53,6 @@ var_dump($battlefield);
 // 'mainPlayerTwo'=>$mainPlayerTwo]);
 
 
-// echo $twig->render('index.html.twig');
+echo $twig->render('index.html.twig');
 
 

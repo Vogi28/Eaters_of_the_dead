@@ -124,12 +124,159 @@ audio {
 }
 
 .main {
-    background-color: #ff4d00;
-    width: 200px;
+    background-color: darkgrey;
+    width: 70%;
     height: 400px;
     position: absolute;
     bottom: 50px;
     left: 5%;
     display: flex;
     flex-direction: row;
+}
+
+.carteOne, .carteTwo, .carteTree {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.5em;
+    margin: 0 0.5em;
+    width: 33.33%;
+}
+
+.carteOne {
+    background-color: #ff4d00;
+}
+
+.carteTwo {
+    background-color: #ff4e75;
+}
+
+.carteTree {
+    background-color: blue;
+}
+
+/*ai main*/
+
+  .mainAi {
+    background-color: darkgrey;
+    width: 50%;
+    height: 250px;
+    position: absolute;
+    top: 50px;
+    left: 7%;
+    display: flex;
+    flex-direction: row;
+}
+
+.carteAiOne, .carteAiTwo, .carteAiTree {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.5em;
+    margin: 0 0.5em;
+    width: 33.33%;
+}
+
+.carteAiOne {
+    background-color: #ff4d00;
+}
+
+.carteAiTwo {
+    background-color: #ff4e75;
+}
+
+.carteAiTree {
+    background-color: blue;
+}
+
+/* deux joueurs */
+
+.landMulti {
+    height: 30%;
+    width: 50%;
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.randomOneMulti, .randomTwoMulti, .randomTreeMulti {
+    width: 33.33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.randomOneMulti {
+    background-color: #ff4d00;
+}
+
+.randomTwoMulti {
+    background-color: #ff4e75;
+}
+
+.randomTreeMulti {
+    background-color: blue;
+}
+
+.mainJoueurOneMulti {
+    width: 45%;
+    height: 25%;
+    position: absolute;
+    bottom: 40%;
+    left: 3%;
+    display: flex;
+    flex-direction: row;
+}
+
+.carteJoueurOneMulti, .carteJoueurTwoMulti, .carteJoueurTreeMulti {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.5em;
+    width: 33.33%;
+}
+
+.carteJoueurOneMulti {
+    background-color: #ff4d00;
+}
+
+.carteJoueurTwoMulti {
+    background-color: #ff4e75;
+}
+
+.carteJoueurTreeMulti {
+    background-color: blue;
+}
+
+/*ai main*/
+
+.mainJoueurDeuxMulti {
+    width: 45%;
+    height: 25%;
+    position: absolute;
+    bottom: 40%;
+    right: 3%;
+    display: flex;
+    flex-direction: row;
+}
+
+.carteJoueurOneMulti, .carteJoueurTwoMulti, .carteJoueurTree {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.5em;
+    width: 33.33%;
+}
+
+.cartJoueuriOne {
+    background-color: #ff4d00;
+}
+
+.carteJoueurTwo {
+    background-color: #ff4e75;
+}
+
+.carteJoueurTree {
+    background-color: blue;
 }

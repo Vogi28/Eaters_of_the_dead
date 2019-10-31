@@ -2,7 +2,14 @@
 
 
     {% block body %}
-        <div class="containerBody">
+        <audio controls preload="auto" autoplay>
+            <source src="sound/soundHackathon.mp3" type="audio/mpeg">
+        </audio>
+        <div class="background"></div>
+        <div class="menu_title">
+            <a href="./indexSoloPlay.html" class="title">Jouer en solo</a>
+            <a href="./indexMultiPlay.html" class="title">Jouer à deux</a>
+        </div>
 
         {% block lands %}
             <div class="containerLands">

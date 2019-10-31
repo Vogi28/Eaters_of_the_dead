@@ -9,6 +9,11 @@ use Symfony\Component\HttpClient\HttpClient;
 
 $monster = new Monster();
 $land = new Land();
+$cimeteryP1 = new CimeteryP1;
+$cimeteryAI = new CimeteryAI;
+
+var_dump($cimeteryP1->getCimetery());
+var_dump($cimeteryAI->getCimetery());
 
 
 
@@ -50,5 +55,7 @@ $land = new Land();
 // 'mainPlayerOne'=>$mainPlayerOne,
 // 'mainPlayerTwo'=>$mainPlayerTwo]);
 
-//echo $twig->render('index.html.twig');
+
+// echo $twig->render('index.html.twig');
+
 

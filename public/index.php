@@ -5,12 +5,20 @@ require_once __DIR__ ."/../vendor/autoload.php";
 use App\Deck;
 use App\Land;
 use App\Monster;
+use App\Cimetery;
+use App\CimeteryAI;
+use App\CimeteryP1;
 use App\Battlefield;
 use Symfony\Component\HttpClient\HttpClient;
 
 $battlefied = new Battlefield();
 $monster = new Monster();
 $land = new Land();
+$cimeteryP1 = new CimeteryP1;
+$cimeteryAI = new CimeteryAI;
+
+var_dump($cimeteryP1->getCimetery());
+var_dump($cimeteryAI->getCimetery());
 
 
 
@@ -33,8 +41,7 @@ $land = new Land();
 // }
 
 
-$battlefield->run();
-
+// $battlefield->run();
 
 // rooting twig
 $loader = new Twig\Loader\FilesystemLoader(__DIR__.'/../src/view/');
@@ -52,5 +59,5 @@ $twig = new Twig\Environment($loader);
 // 'mainPlayerOne'=>$mainPlayerOne,
 // 'mainPlayerTwo'=>$mainPlayerTwo]);
 
-echo $twig->render('index.html.twig');
+// echo $twig->render('index.html.twig');
 

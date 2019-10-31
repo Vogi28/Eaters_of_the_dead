@@ -10,6 +10,7 @@ abstract class Deck
     protected $card_lands;
     protected $card_monsters;
     protected $deck_lands;
+    protected $cimetery;
 
     public function __construct()
     {
@@ -47,6 +48,8 @@ abstract class Deck
             "19"=>array("nameMovie" => "Beat the Reper", "image" => "images/19.jpg"),
             "20"=>array("nameMovie" => "Omens Good", "image" => "images/20.jpg"),
         );
+
+        $this->cimetery = 0;
     }
 
     public function mixedDeck() #optionnal
@@ -85,8 +88,17 @@ abstract class Deck
         return $this->card_lands;
     }
 
-    public function cimetery()
+    public function cimetery($monster)
     {
         # si defense carte monstre <= 0, envoyer la catre au cimetiere
+         if($monster['defense'] <= 0)
+        {
+            $this->cimetery += 1;
+        }
+    }
+
+    public function setCard_Battlefield($monster) 
+    {
+        unset($this->deck_monsters[$monster]);
     }
 }

@@ -1,12 +1,56 @@
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends "layout.html.twig" %}
 
-</body>
-</html>
+
+    {% block body %}
+        <div class="containerBody">
+
+        {% block lands %}
+            <div class="containerLands">
+
+            </div>
+        {% endblock %}
+
+        {% block landbackground %}
+            <div class="containerLandBackground">
+
+            </div>
+        {% endblock %}
+
+        {% block deckplayerone %}
+            <div class="containerDeckPlayerOne">
+
+            </div>
+        {% endblock %}
+
+        {% block deckplayertwo %}
+            <div class="containerDeckPlayerTwo">
+
+            </div>
+        {% endblock %}
+
+        {% block cimeteryplayerone %}
+            <div class="containerCimeteryPlayerOne">
+
+            </div>
+        {% endblock %}
+
+        {% block cimeteryplayertwo %}
+            <div class="containerCimeteryPlayerTwo">
+
+            </div>
+        {% endblock %}
+
+        {% block mainplayerone %}
+            <div class="containerMainPlayerOne">
+
+            </div>
+        {% endblock %}
+
+        {% block mainplayertwo %}
+            <div class="containerMainPlayerTwo">
+
+            </div>
+        {% endblock %}
+        
+        </div>        
+    {% endblock %}

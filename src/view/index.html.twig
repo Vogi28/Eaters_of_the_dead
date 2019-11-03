@@ -1,62 +1,14 @@
 {% extends "layout.html.twig" %}
 
-
-    {% block body %}
+{% block body %}
+    {% block accueil %}
         <audio controls preload="auto" autoplay>
             <source src="sound/soundHackathon.mp3" type="audio/mpeg">
         </audio>
         <div class="background"></div>
         <div class="menu_title">
-            <a href="./indexSoloPlay.html" class="title">Jouer en solo</a>
-            <a href="./indexMultiPlay.html" class="title">Jouer à deux</a>
+            <a href="{{'../src/view/soloPlayeurView.html.twig'}}" class="title">Jouer en solo</a>
+            <a href="{{'../src/view/multiPlayeur.html.twig'}}" class="title">Jouer à deux</a>
         </div>
-
-        {% block lands %}
-            <div class="containerLands">
-                 <img src="pic_trulli.jpg" alt="Italian Trulli">
-
-            </div>
-        {% endblock %}
-
-        {% block landbackground %}
-            <div class="containerLandBackground">
-
-            </div>
-        {% endblock %}
-
-        {% block deckplayerone %}
-            <div class="containerDeckPlayerOne">
-
-            </div>
-        {% endblock %}
-
-        {% block deckplayertwo %}
-            <div class="containerDeckPlayerTwo">
-
-            </div>
-        {% endblock %}
-
-        {% block cimeteryplayerone %}
-            <div class="containerCimeteryPlayerOne">
-
-            </div>
-        {% endblock %}
-
-        {% block cimeteryplayertwo %}
-                {{valeur}}
-        {% endblock %}
-
-        {% block mainplayerone %}
-            <div class="containerMainPlayerOne">
-
-            </div>
-        {% endblock %}
-
-        {% block mainplayertwo %}
-            <div class="containerMainPlayerTwo">
-
-            </div>
-        {% endblock %}
-        
-        </div>        
     {% endblock %}
+{% endblock %}

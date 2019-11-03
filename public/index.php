@@ -1,16 +1,16 @@
 <?php
 
 require_once __DIR__ ."/../vendor/autoload.php";
-require_once __DIR__."/../src/Battlefield.php";
+//require_once __DIR__."/../src/Battlefield.php";
 
-use App\Deck;
-use App\Land;
-use App\Monster;
-use Symfony\Component\HttpClient\HttpClient;
+//use App\Deck;
+//use App\Land;
+//use App\Monster;
+//use Symfony\Component\HttpClient\HttpClient;
 
-$deckPlayerOne = new Monster();
-$deckPlayerTwo = new Monster();
-$land = new Land();
+//$deckPlayerOne = new Monster();
+//$deckPlayerTwo = new Monster();
+//$land = new Land();
 
 // $monster->setCard_Monster();
 // $hand = $monster->getCard_Monster();
@@ -32,15 +32,15 @@ $land = new Land();
 
 
 
-$battlefield = getRandomMonsters($twig, $deckPlayerOne, $deckPlayerTwo);
-
-$deckPlayers=setChoiceMonster($twig, $battlefield);
-
-var_dump($deckPlayers);
+//$battlefield = getRandomMonsters($twig, $deckPlayerOne, $deckPlayerTwo);
+//
+//$deckPlayers=setChoiceMonster($twig, $battlefield);
+//
+//var_dump($deckPlayers);
 
 // rooting twig
-// $loader = new Twig\Loader\FilesystemLoader(__DIR__.'/../src/view/');
-// $twig = new Twig\Environment($loader);
+ $loader = new Twig\Loader\FilesystemLoader(__DIR__.'/../src/view/');
+ $twig = new Twig\Environment($loader);
 
 // render
 

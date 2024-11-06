@@ -2,7 +2,7 @@
     "name": "vogi/hackathon",
     "require": {
         "twig/twig": "^2.12",
-        "symfony/http-client": "^4.3"
+        "symfony/http-client": "^5.4"
     },
     "authors": [
         {

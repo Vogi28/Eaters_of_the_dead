@@ -1,7 +1,7 @@
 {
     "name": "vogi/hackathon",
     "require": {
-        "twig/twig": "^2.12",
+        "twig/twig": "^3.11",
         "symfony/http-client": "^4.3"
     },
     "authors": [
